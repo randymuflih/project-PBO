@@ -2,7 +2,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useAuth } from '../../lib/authContext';
 import { useTheme } from '../../lib/ThemeContext';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -28,7 +28,7 @@ type FormData = {
   is_active: boolean;
 };
 
-const EditInternshipPage = () => {
+const EditInternshipContent = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const internshipId = searchParams.get('id');
@@ -822,5 +822,11 @@ const EditInternshipPage = () => {
     </div>
   );
 };
+
+const EditInternshipPage = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <EditInternshipContent />
+  </Suspense>
+);
 
 export default EditInternshipPage;
