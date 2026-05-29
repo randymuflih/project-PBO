@@ -1,5 +1,5 @@
 // FloatingThemeToggle.tsx
-import { ToggleDarkModeProps } from './interfaces';
+import { ToggleDarkModeProps } from '../interfaces';
 
 const FloatingThemeToggle = ({ darkMode, toggleDarkMode }: { darkMode: boolean } & ToggleDarkModeProps) => {
   return (
