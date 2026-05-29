@@ -327,7 +327,7 @@ const DocumentsPage = () => {
 
       <div className="flex pt-16">
         {/* Sidebar */}
-        {(sidebarOpen || window.innerWidth >= 768) && (
+        {(sidebarOpen || (typeof window !== "undefined" && window.innerWidth >= 768)) && (
           <div className="hidden md:block">
             <Sidebar darkMode={darkMode} userProfile={{ name: userName, email: userEmail }} />
           </div>

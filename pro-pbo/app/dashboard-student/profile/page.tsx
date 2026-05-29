@@ -287,7 +287,7 @@ const ManageStudentProfilePage = () => {
 
       <div className="flex pt-16">
         {/* Sidebar */}
-        {(sidebarOpen || window.innerWidth >= 768) && (
+        {(sidebarOpen || (typeof window !== "undefined" && window.innerWidth >= 768)) && (
           <div className="hidden md:block">
             <Sidebar
               darkMode={darkMode}
@@ -300,14 +300,14 @@ const ManageStudentProfilePage = () => {
         )}
 
         {/* Mobile sidebar overlay */}
-        {sidebarOpen && window.innerWidth < 768 && (
+        {sidebarOpen && (
           <div
             className="fixed inset-0 z-30 bg-black bg-opacity-50 md:hidden"
             onClick={() => setSidebarOpen(false)}
           ></div>
         )}
 
-        {sidebarOpen && window.innerWidth < 768 && (
+        {sidebarOpen && (
           <div className="fixed top-16 left-0 z-40 w-64 h-[calc(100vh-4rem)] md:hidden">
             <Sidebar
               darkMode={darkMode}
