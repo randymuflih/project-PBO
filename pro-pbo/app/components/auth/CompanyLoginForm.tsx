@@ -25,28 +25,13 @@ const CompanyLoginForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError(null);
     setLoading(true);
-
-    try {
-      const result: LoginResponse = await loginUser(formData.email, formData.password);
-      
-      // Verify that user is a company before allowing login
-      if (result.user.role !== 'company') {
-        setError('Akun ini bukan milik perusahaan. Silakan gunakan login mahasiswa.');
-        return;
-      }
-      
-      // If login successful and user is company, save user and token to context and localStorage
-      login(result.user, result.token);
-      // Redirect to company dashboard
-      router.push('/dashboard');
-    } catch (err) {
-      console.error('Company login error:', err);
-      setError((err as Error).message || 'Gagal masuk. Silakan coba lagi.');
-    } finally {
-      setLoading(false);
-    }
+    // TEMPORARY: bypass API, langsung login sebagai perusahaan demo
+    login(
+      { id: 'demo-company', email: formData.email || 'perusahaan@demo.com', role: 'company' },
+      'demo-token'
+    );
+    router.push('/dashboard');
   };
 
   return (

@@ -25,28 +25,13 @@ const StudentLoginForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError(null);
     setLoading(true);
-
-    try {
-      const result: LoginResponse = await loginUser(formData.email, formData.password);
-      
-      // Verify that user is a student before allowing login
-      if (result.user.role !== 'student') {
-        setError('Akun ini bukan milik mahasiswa. Silakan gunakan login perusahaan.');
-        return;
-      }
-      
-      // If login successful and user is student, save user and token to context and localStorage
-      login(result.user, result.token);
-      // Redirect to student dashboard
-      router.push('/dashboard-student');
-    } catch (err) {
-      console.error('Student login error:', err);
-      setError((err as Error).message || 'Gagal masuk. Silakan coba lagi.');
-    } finally {
-      setLoading(false);
-    }
+    // TEMPORARY: bypass API, langsung login sebagai mahasiswa demo
+    login(
+      { id: 'demo-student', email: formData.email || 'mahasiswa@demo.com', role: 'student' },
+      'demo-token'
+    );
+    router.push('/dashboard-student');
   };
 
   return (
