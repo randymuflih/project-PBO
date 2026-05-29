@@ -1,3 +1,5 @@
+'use client';
+
 // app/components/auth/CompanyLoginForm.tsx
 
 import { useState } from 'react';

@@ -1,3 +1,5 @@
+'use client';
+
 // app/components/auth/RegisterForm.tsx
 
 import { useState } from 'react';

@@ -1,3 +1,5 @@
+'use client';
+
 // FloatingLoginButton.tsx
 import { ToggleDarkModeProps } from './interfaces';
 import { useState } from 'react';

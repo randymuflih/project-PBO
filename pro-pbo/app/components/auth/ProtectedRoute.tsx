@@ -1,3 +1,5 @@
+'use client';
+
 // app/components/auth/ProtectedRoute.tsx
 
 import { useAuth } from '../../lib/authContext'; // Impor useAuth

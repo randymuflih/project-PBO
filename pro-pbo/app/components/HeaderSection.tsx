@@ -1,3 +1,5 @@
+'use client';
+
 // HeaderSection.tsx
 import { HeaderSectionProps, ToggleDarkModeProps } from '../interfaces';
 import { useState } from 'react';

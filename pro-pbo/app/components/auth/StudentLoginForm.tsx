@@ -1,3 +1,5 @@
+'use client';
+
 // app/components/auth/StudentLoginForm.tsx
 
 import { useState } from 'react';
